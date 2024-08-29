@@ -1,0 +1,166 @@
+{
+    // Place your atcoder workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+    // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+    // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+    // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+    // Placeholders with the same ids are connected.
+    // Example:
+    // "Print to console": {
+    //     "scope": "javascript,typescript",
+    //     "prefix": "log",
+    //     "body": [
+    //         "console.log('$1');",
+    //         "$2"
+    //     ],
+    //     "description": "Log output to console"
+    // }
+    "binary heap": {
+        "prefix": "heap",
+        "body": [
+            "let mut heap= BinaryHeap::new();//ヒープを作成",
+            "let mut distance =vec![i64::MAX;_];//初期値,_は点数",
+            "heap.push(_);//heapを初期化",
+            "while let Some(x) = heap.pop(){ //最大値を取り出す",
+            "    if distance[_]==i64::MAX{",
+            "       distance[x._]=x._",
+            "    ",
+            "        //距離を計算",
+            "    ",
+            "        heap.push(_);//距離を更新",
+            "    }",
+            "}",
+        ]
+      },
+      "factorization": {
+        "prefix": ["factorization","soinsubunkai"],
+        "body": [
+            "fn integer_factorization(mut n: usize) -> BTreeMap<usize, usize> {",
+            "    let mut map = BTreeMap::new();",
+            "    let mut i = 2;",
+            "    while i * i <= n {",
+            "        while n % i == 0 {",
+            "            *map.entry(i).or_insert(0) += 1;",
+            "            n /= i;",
+            "        }",
+            "        i += 1;",
+            "    }",
+            "    if n != 0 && n != 1 {",
+            "        *map.entry(n).or_insert(0) += 1;",
+            "    }",
+            "    map",
+            "}"
+        ]
+      },
+      "lazy_seg": {
+        "prefix": "lazy_seg",
+        "body": [
+            "use ac_library::{LazySegtree, MapMonoid, Monoid};",
+            "struct M;",
+            "impl Monoid for M {",
+            "    type S = _;",
+            "    fn identity() -> Self::S {",
+            "        //単位元",
+            "    }",
+            "    fn binary_operation(&a: &Self::S, &b: &Self::S) -> Self::S {",
+            "        //演算",
+            "    }",
+            "}",
+            "struct F;",
+            "impl MapMonoid for F {",
+            "    type M = _;",
+            "    type F = _;",
+            "",
+            "    fn identity_map() -> Self::F {",
+            "        //単位元",
+            "    }",
+            "    fn mapping(&f: &Self::F, &a: &<M as Monoid>::S) -> <M as Monoid>::S {",
+            "        //演算",
+            "    }",
+            "    fn composition(&f: &Self::F, &g: &Self::F) -> Self::F {",
+            "        //結合",
+            "    }",
+            "}",
+            "/*",
+            "example",
+            "    let mut segtree: LazySegtree<F> = vec![_;n].into();",
+            "",
+            "    segtree.apply_range(l..r, f)",
+            "",
+            "    segtree.prod(l..r);",
+            "*/",
+        ],
+        "description": ""
+    },
+    "gcd": {
+        "prefix": "gcd",
+        "body": [
+            "fn gcd(a: u64, b: u64) -> u64 {",
+            "    if b == 0 {",
+            "        a",
+            "    } else {",
+            "        gcd(b, a % b)",
+            "    }",
+            "}",
+            "",
+        ],
+        "description": ""
+    },
+    "memo": {
+        "prefix": "memo",
+        "body": [
+            "use memoise::memoise_map;",
+            "#[memoise_map(n)]",
+            "fn func(n:i64)->i64{",
+            "    match n{",
+            "        0 =>,",
+            "        _ =>再起処理",
+            "",
+            "    }",
+            "}",
+        ],
+        "description": ""
+    },
+    "modint2": {
+        "prefix": "modint2",
+        "body": [
+            "use ac_library::{DynamicModInt,Id,Barrett};",
+            "",
+            "",
+            "#[derive(Copy, Clone, Eq, PartialEq)]",
+            "struct Modulus1;",
+            "impl Id for Modulus1 {",
+            "    fn companion_barrett() -> &'static ac_library::Barrett {",
+            "        static BARRETT_INSTANCE1: Barrett = Barrett::new(u32::MAX);",
+            "        &BARRETT_INSTANCE1",
+            "    }",
+            "}",
+            "",
+            "#[derive(Copy, Clone, Eq, PartialEq)]",
+            "struct Modulus2;",
+            "impl Id for Modulus2 {",
+            "    fn companion_barrett() -> &'static ac_library::Barrett {",
+            "        static BARRETT_INSTANCE2: Barrett = Barrett::new(u32::MAX);",
+            "        &BARRETT_INSTANCE2",
+            "    }",
+            "}",
+            "/*",
+            "example",
+            "    DynamicModInt::<Modulus1>::set_modulus(_ as u32);",
+            "    DynamicModInt::<Modulus2>::set_modulus(_ as u32);",
+            "    let mod_int1=DynamicModInt::<Modulus1>::new(n);",
+            "    let mod_int2=DynamicModInt::<Modulus2>::new(n);",
+            "*/",
+        ],
+        "description": ""
+    },
+    "yesno": {
+        "prefix": "yesno",
+        "body": [
+            "println!(\"{}\", if ans { \"Yes\" } else { \"No\" });",
+        ],
+        "description": ""
+    },
+    
+
+}
