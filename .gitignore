@@ -24,4 +24,5 @@ Cargo.lock
 binary/main/encoded_binary.txt
 
 abc*/
+dp/
 binary/main/src/main.rs
