@@ -161,6 +161,17 @@
         ],
         "description": ""
     },
-    
+    "lower_bound":{
+        "prefix": "lower_bound",
+        "body": [
+            "partition_point(|&y| y < bound );"
+        ]
+    },
+    "upper_bound":{
+        "prefix": "upper_bound",
+        "body": [
+            "partition_point(|&y| y <= bound );"
+        ]
+    },
 
 }
